@@ -14,7 +14,7 @@ CREATE TABLE Users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- User Profiles Table
+-- UserProfiles Table
 CREATE TABLE UserProfiles (
     profile_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE Categories (
     description TEXT
 );
 
--- Flavor Profiles Table
+-- FlavorProfiles Table
 CREATE TABLE FlavorProfiles (
     flavor_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE
@@ -74,7 +74,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
--- Order Details Table
+-- OrderDetails Table
 CREATE TABLE OrderDetails (
     order_detail_id SERIAL PRIMARY KEY,
     order_id INT NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE Suppliers (
     address VARCHAR(255)
 );
 
--- Product-Suppliers Table
+-- ProductSuppliers Table
 CREATE TABLE ProductSuppliers (
     product_supplier_id SERIAL PRIMARY KEY,
     product_id INT NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE Wishlists (
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
--- Wishlist Items Table
+-- WishlistItems Table
 CREATE TABLE WishlistItems (
     wishlist_item_id SERIAL PRIMARY KEY,
     wishlist_id INT NOT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE WishlistItems (
     FOREIGN KEY (product_id) REFERENCES Products(product_id) ON DELETE CASCADE
 );
 
--- Product Views Table
+-- ProductViews Table
 CREATE TABLE ProductViews (
     view_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE Roles (
     role_name VARCHAR(50) NOT NULL UNIQUE
 );
 
--- User Roles Table
+-- UserRoles Table
 CREATE TABLE UserRoles (
     user_role_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
